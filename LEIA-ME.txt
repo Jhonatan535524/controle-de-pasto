@@ -1,0 +1,29 @@
+CONTROLE DE PASTO — VERSÃO 4 (TESTE COM SUPABASE)
+
+O QUE ESTA VERSÃO FAZ
+- Login separado para cada usuário Supabase.
+- Busca a propriedade vinculada ao usuário em farm_members.
+- Lê e grava proprietários, lotes e movimentações no Supabase.
+- Registra entrada, retirada parcial/total, mudança de bezerro para adulto e pagamentos.
+- Calcula saldo com cobranças lançadas e períodos completos dos lotes ainda ativos.
+
+CONFIGURAÇÃO
+- A URL do projeto e a chave publishable do Supabase estão configuradas em index.html.
+- A chave publishable é própria para uso no navegador. Nunca coloque service_role ou secret key no aplicativo.
+- Os dois usuários precisam estar vinculados a uma propriedade em farm_members.
+- As políticas RLS precisam permitir as operações realizadas por cada usuário.
+
+COMO TESTAR
+1. Extraia os quatro arquivos do ZIP.
+2. Publique a pasta em uma hospedagem HTTPS.
+3. Abra o endereço no navegador do celular.
+4. Entre com o e-mail e a senha de um dos usuários Supabase.
+5. Faça testes com proprietários e quantidades fictícias. Confira os dados no Table Editor do Supabase.
+6. Teste também com o segundo usuário para confirmar que ambos veem os mesmos dados.
+
+LIMITAÇÕES IMPORTANTES
+- Esta é uma versão de teste, não um APK instalado nem um aplicativo já hospedado.
+- Exige internet para consultar e gravar dados. Ainda não há fila de alterações offline nem sincronização posterior.
+- Operações que envolvem mais de uma gravação não são transações atômicas nesta versão. Em caso de falha de conexão no meio de uma operação, confira lots e movements no Supabase antes de repetir o lançamento.
+- As políticas RLS, permissões e o comportamento real do banco ainda precisam ser validados com testes de login e gravação.
+- Não use como controle financeiro definitivo antes de testar cuidadosamente todos os cenários.
